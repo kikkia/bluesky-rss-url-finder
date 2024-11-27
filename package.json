@@ -1,0 +1,31 @@
+{
+  "name": "pixiv-login",
+  "version": "1.0.0",
+  "description": "Service to login to pixiv with a valid username/password",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikkia/pixiv-login.git"
+  },
+  "author": "Kikkia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikkia/pixiv-login/issues"
+  },
+  "homepage": "https://github.com/kikkia/pixiv-login#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "puppeteer": "^13.5.1",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin": "^3.2.0",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "sanitize-html": "^1.27.0",
+    "user-agents": "^1.0.967",
+    "xvfb": "^0.4.0"
+  }
+}

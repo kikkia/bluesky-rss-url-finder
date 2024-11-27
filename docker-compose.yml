@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bluesky-rss:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7788:7788"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
