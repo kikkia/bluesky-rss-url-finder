@@ -11,6 +11,7 @@ const PORT = process.env.SERVER_PORT || 7788;
 let browser = null;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
