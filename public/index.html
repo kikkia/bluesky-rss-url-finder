@@ -95,6 +95,19 @@
 
     <script>
         document.getElementById('fetchRssButton').addEventListener('click', async () => {
+            fetchRssFeed();
+        });
+
+        // Add event listener for Enter key in the input field
+        document.getElementById('handle').addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();  // Prevent form submission (if inside a form)
+                fetchRssFeed();  // Trigger the function to fetch RSS feed
+            }
+        });
+
+        // Function to fetch the RSS feed
+        async function fetchRssFeed() {
             const handle = document.getElementById('handle').value.trim();
             if (!handle) {
                 alert('Please enter a BlueSky handle.');
@@ -126,7 +139,7 @@
                 // Hide loading spinner after request is complete
                 document.getElementById('loadingSpinner').style.display = 'none';
             }
-        });
+        }
     </script>
 </body>
 </html>
