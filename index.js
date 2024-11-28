@@ -8,10 +8,18 @@ const profile_url = "https://bsky.app/profile/";
 const app = express();
 const PORT = process.env.SERVER_PORT || 7788;
 
+var dd_options = {
+    'response_code':true,
+    'tags': ['app:bluesky_rss']
+}
+  
+var connect_datadog = require('connect-datadog')(dd_options);
+
 let browser = null;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(connect_datadog);
 
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
