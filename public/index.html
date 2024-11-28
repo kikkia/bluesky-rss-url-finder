@@ -94,15 +94,20 @@
     </div>
 
     <script>
+        let isLoading = false;
         document.getElementById('fetchRssButton').addEventListener('click', async () => {
-            fetchRssFeed();
+            if (!isLoading) {
+                fetchRssFeed();
+            }
         });
 
         // Add event listener for Enter key in the input field
         document.getElementById('handle').addEventListener('keypress', (event) => {
             if (event.key === 'Enter') {
                 event.preventDefault();  // Prevent form submission (if inside a form)
-                fetchRssFeed();  // Trigger the function to fetch RSS feed
+                if (!isLoading) {
+                    fetchRssFeed();  // Trigger the function to fetch RSS feed
+                }
             }
         });
 
@@ -118,6 +123,7 @@
             document.getElementById('resultContainer').style.display = 'none';
             document.getElementById('errorContainer').style.display = 'none';
             document.getElementById('loadingSpinner').style.display = 'block';
+            isLoading = true
 
             try {
                 const response = await fetch(`/user/${handle}`);
@@ -138,6 +144,7 @@
             } finally {
                 // Hide loading spinner after request is complete
                 document.getElementById('loadingSpinner').style.display = 'none';
+                isLoading = false;
             }
         }
     </script>
