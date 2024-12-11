@@ -94,7 +94,7 @@ app.get('/user/:handle', async (req, res) => {
         });
 
         if (rssUrl) {
-            res.json({ rssUrl });
+            res.json({ rssUrl, handle });
         } else {
             res.status(404).json({ message: "RSS feed not found." });
         }
